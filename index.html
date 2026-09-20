@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Shekinah Collection: joyeria contemporanea, piezas de presencia y luz." />
+  <title>Shekinah Collection | Joyeria contemporanea</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="announcement">ENVIO GRATIS A PARTIR DE $150 · ATENCION PERSONALIZADA POR WHATSAPP</div>
+  <header class="site-header">
+    <a class="brand" href="#inicio" aria-label="Shekinah Collection, ir al inicio">
+      <img src="assets/logo-placeholder.svg" alt="Logo de Shekinah Collection" />
+      <span>SHEKINAH <i>COLLECTION</i></span>
+    </a>
+    <nav class="main-nav" aria-label="Navegacion principal">
+      <a href="#coleccion">Coleccion</a>
+      <a href="#manifiesto">Manifiesto</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <a class="header-whatsapp" href="https://wa.me/5215512345678?text=Hola%20Shekinah%20Collection%2C%20quiero%20conocer%20la%20coleccion" target="_blank" rel="noreferrer">
+      <span class="whatsapp-dot" aria-hidden="true"></span>
+      WhatsApp
+    </a>
+  </header>
+
+  <main id="inicio">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">OBJETOS PARA RECORDAR</p>
+        <h1>La luz tambien<br /><em>se lleva puesta.</em></h1>
+        <p class="hero-text">Joyeria contemporanea creada para acompañar tus momentos con una elegancia serena y muy tuya.</p>
+        <a class="button button-gold" href="#coleccion">Explorar piezas <span aria-hidden="true">↘</span></a>
+      </div>
+      <div class="hero-art" aria-label="Composicion abstracta de joyeria dorada">
+        <div class="sun-disc"></div>
+        <div class="orbit orbit-one"></div>
+        <div class="orbit orbit-two"></div>
+        <div class="hero-ring ring-large"></div>
+        <div class="hero-ring ring-small"></div>
+        <span class="hero-stamp">01<br /><small>/ 29</small></span>
+      </div>
+      <div class="hero-footer"><span>EDICION 01 — 2024</span><span>CDMX / MX</span></div>
+    </section>
+
+    <section class="collection" id="coleccion" aria-labelledby="collection-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">SELECCION SHEKINAH</p>
+          <h2 id="collection-title">Piezas con<br /><em>presencia.</em></h2>
+        </div>
+        <p class="section-intro">Diseños que encuentran el punto exacto entre lo esencial y lo inesperado.</p>
+      </div>
+      <div class="filter-row" role="group" aria-label="Filtrar productos">
+        <button class="filter-button is-active" data-filter="todos">Todo <span>29</span></button>
+        <button class="filter-button" data-filter="anillos">Anillos <span>08</span></button>
+        <button class="filter-button" data-filter="collares">Collares <span>07</span></button>
+        <button class="filter-button" data-filter="aretes">Aretes <span>08</span></button>
+        <button class="filter-button" data-filter="pulseras">Pulseras <span>06</span></button>
+      </div>
+      <div class="product-grid" id="product-grid"></div>
+      <div class="collection-footer"><span>Mostrando <strong id="product-count">29</strong> piezas</span><span class="gold-line"></span><span>Hecho para durar</span></div>
+    </section>
+
+    <section class="manifesto" id="manifiesto" aria-labelledby="manifesto-title">
+      <div class="manifesto-mark">A</div>
+      <div class="manifesto-copy">
+        <p class="eyebrow">NUESTRO MANIFIESTO</p>
+        <h2 id="manifesto-title">Menos ruido.<br /><em>Mas significado.</em></h2>
+        <p>Cada pieza nace de una idea simple: crear objetos que se sientan propios. Trabajamos con formas limpias, materiales honestos y el tiempo que hace falta para encontrar el gesto perfecto.</p>
+        <a class="text-link" href="#contacto">Conoce nuestro proceso <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="manifesto-side"><span>01</span><span>CALMA<br />INTENCION<br />PRESENCIA</span></div>
+    </section>
+
+    <section class="contact" id="contacto" aria-labelledby="contact-title">
+      <div>
+        <p class="eyebrow">HABLEMOS</p>
+        <h2 id="contact-title">Tu proxima pieza<br /><em>empieza aqui.</em></h2>
+      </div>
+      <div class="contact-action">
+        <p>Escribenos para consultar medidas, disponibilidad o crear una combinacion especial.</p>
+        <a class="button button-dark" href="https://wa.me/5215512345678?text=Hola%20Shekinah%20Collection%2C%20quiero%20asesoria%20para%20elegir%20una%20pieza" target="_blank" rel="noreferrer">
+          <span class="whatsapp-dot" aria-hidden="true"></span> Abrir WhatsApp <span aria-hidden="true">↗</span>
+        </a>
+        <a class="button button-gold" href="https://wa.me/5215512345678?text=Hola%20Shekinah%20Collection%2C%20quiero%20armar%20mi%20pieza" target="_blank" rel="noreferrer">
+          <span class="whatsapp-dot" aria-hidden="true"></span> Arma tu pieza <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-brand">SHEKINAH <i>COLLECTION</i></div>
+    <span>Joyeria para todos los dias extraordinarios.</span>
+    <span>© 2024 Shekinah Collection</span>
+  </footer>
+  <div class="toast" id="toast" role="status" aria-live="polite">Pieza guardada en tu seleccion</div>
+  <script src="script.js"></script>
+</body>
+</html>
