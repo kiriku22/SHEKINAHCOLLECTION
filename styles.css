@@ -37,7 +37,7 @@ h1 em, h2 em { color: var(--gold-light); font-style: italic; font-weight: 400; }
 .button-gold { background: var(--gold); color: var(--black); }
 .button-gold:hover { background: var(--gold-light); }
 .hero-art { height: 590px; position: absolute; right: 6vw; top: 8px; width: 48%; }
-.sun-disc { background: var(--gold); border-radius: 50%; height: min(35vw, 490px); opacity: .94; position: absolute; right: 8%; top: 10%; width: min(35vw, 490px); }
+.sun-disc { height: min(35vw, 490px); object-fit: contain; opacity: .94; position: absolute; right: 8%; top: 10%; width: min(35vw, 490px); }
 .orbit { border: 1px solid rgba(248,247,243,.45); border-radius: 50%; height: 80%; position: absolute; right: 12%; top: 4%; transform: rotate(-28deg); width: 50%; }
 .orbit-two { height: 58%; right: 25%; top: 22%; transform: rotate(48deg); width: 36%; }
 .hero-ring { border: 1px solid var(--black); border-radius: 50%; position: absolute; z-index: 1; }
