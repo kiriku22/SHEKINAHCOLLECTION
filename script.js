@@ -5,6 +5,15 @@ const products = [
   ['Pulsera Pulso', 'pulseras', '$2,100', '24'], ['Pulsera Nodo', 'pulseras', '$2,360', '25'], ['Pulsera Cadencia', 'pulseras', '$2,480', '26'], ['Pulsera Abierta', 'pulseras', '$2,050', '27'], ['Pulsera Eje', 'pulseras', '$2,700', '28'], ['Pulsera Rastro', 'pulseras', '$1,980', '29']
 ];
 
+const braceletImages = {
+  '24': 'assets/WhatsApp Image 2026-09-21 at 5.25.00 PM.jpeg',
+  '25': 'assets/WhatsApp Image 2026-09-21 at 5.25.01 PM (1).jpeg',
+  '26': 'assets/WhatsApp Image 2026-09-21 at 5.25.01 PM (2).jpeg',
+  '27': 'assets/WhatsApp Image 2026-09-21 at 5.25.01 PM.jpeg',
+  '28': 'assets/pr1.jpeg',
+  '29': 'assets/pr2.jpeg'
+};
+
 const grid = document.querySelector('#product-grid');
 const count = document.querySelector('#product-count');
 const toast = document.querySelector('#toast');
@@ -15,7 +24,7 @@ function renderProducts(filter = 'todos') {
   grid.innerHTML = visible.map(([name, type, price, number]) => `
     <article class="product-card">
       <div class="product-image">
-        <img src="assets/product-${number}.svg" alt="${name}" loading="lazy" />
+        <img src="${braceletImages[number] || `assets/product-${number}.svg`}" alt="${name}" loading="lazy" />
         <span class="product-number">${number}</span>
         <button class="product-favorite" type="button" aria-label="Guardar ${name}" aria-pressed="false">♡</button>
       </div>
