@@ -65,6 +65,11 @@ h2 { font-size: clamp(65px, 8vw, 112px); }
 .product-info { align-items: start; display: flex; justify-content: flex-start; padding-top: 14px; }
 .product-name { font-family: var(--serif); font-size: 24px; line-height: 1; margin: 0 0 6px; }
 .product-type { color: #77746c; font-size: 9px; letter-spacing: .12em; text-transform: uppercase; }
+.gallery-card { background: var(--paper); display: flex; min-width: 0; overflow: hidden; }
+.gallery-card img { display: block; height: 100%; object-fit: cover; transition: transform .5s ease; width: 100%; }
+.gallery-card:hover img { transform: scale(1.04); }
+.gallery-card-compact { aspect-ratio: 1 / 1; }
+.gallery-card-large { aspect-ratio: 4 / 5; }
 .collection-footer { align-items: center; color: #77746c; display: flex; font-size: 10px; gap: 15px; justify-content: space-between; letter-spacing: .12em; margin-top: 64px; text-transform: uppercase; }
 .gold-line { background: var(--gold); height: 1px; width: 40%; }
 .manifesto { background: var(--black); color: var(--white); display: grid; grid-template-columns: 1fr 1.5fr .5fr; min-height: 610px; padding: 100px 10vw; }
@@ -84,7 +89,13 @@ h2 { font-size: clamp(65px, 8vw, 112px); }
 .footer-brand { font-size: 12px; font-weight: 700; }
 .toast { background: var(--black); bottom: 24px; color: var(--white); font-size: 11px; left: 50%; letter-spacing: .06em; opacity: 0; padding: 13px 18px; pointer-events: none; position: fixed; transform: translate(-50%, 20px); transition: opacity .25s ease, transform .25s ease; z-index: 5; }
 .toast.is-visible { opacity: 1; transform: translate(-50%, 0); }
+.lightbox-overlay { align-items: center; background: rgba(17, 17, 15, .72); display: flex; inset: 0; justify-content: center; opacity: 0; pointer-events: none; position: fixed; transition: opacity .25s ease; z-index: 20; }
+.lightbox-overlay.is-visible { opacity: 1; pointer-events: auto; }
+.lightbox-image { background: var(--paper); box-shadow: 0 30px 80px rgba(0,0,0,.4); display: block; max-height: 78vh; max-width: 48vw; object-fit: contain; width: auto; }
+.lightbox-close { background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.28); border-radius: 50%; color: var(--white); cursor: pointer; font-size: 28px; height: 44px; line-height: 1; position: absolute; right: 28px; top: 26px; width: 44px; }
 @media (max-width: 800px) {
+  .lightbox-image { max-width: 78vw; }
+
   .site-header { padding: 18px 5vw; }
   .main-nav { display: none; }
   .hero { min-height: 720px; padding: 70px 8vw 35px; }

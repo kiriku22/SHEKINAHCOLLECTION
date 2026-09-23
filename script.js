@@ -14,16 +14,93 @@ const braceletImages = {
   '29': 'assets/pr2.jpeg'
 };
 
+const accessoryImages = [
+  'assets/accesorios/WhatsApp Image 2026-09-14 at 1.26.17 PM.jpeg',
+  'assets/accesorios/WhatsApp Image 2026-09-14 at 1.27.15 PM (1) - copia.jpeg',
+  'assets/accesorios/WhatsApp Image 2026-09-14 at 1.27.15 PM (1).jpeg',
+  'assets/accesorios/WhatsApp Image 2026-09-14 at 1.27.15 PM - copia.jpeg',
+  'assets/accesorios/WhatsApp Image 2026-09-14 at 1.27.15 PM.jpeg',
+  'assets/accesorios/WhatsApp Image 2026-09-14 at 1.27.16 PM (1) - copia.jpeg',
+  'assets/accesorios/WhatsApp Image 2026-09-14 at 1.27.16 PM (1).jpeg',
+  'assets/accesorios/WhatsApp Image 2026-09-14 at 1.27.16 PM (2) - copia.jpeg',
+  'assets/accesorios/WhatsApp Image 2026-09-14 at 1.27.16 PM (2).jpeg',
+  'assets/accesorios/WhatsApp Image 2026-09-14 at 1.27.16 PM - copia.jpeg',
+  'assets/accesorios/WhatsApp Image 2026-09-14 at 1.27.16 PM.jpeg',
+  'assets/accesorios/WhatsApp Image 2026-09-14 at 1.27.17 PM (1) - copia.jpeg',
+  'assets/accesorios/WhatsApp Image 2026-09-14 at 1.27.17 PM (1).jpeg',
+  'assets/accesorios/WhatsApp Image 2026-09-14 at 1.27.17 PM (2) - copia.jpeg',
+  'assets/accesorios/WhatsApp Image 2026-09-14 at 1.27.17 PM (2).jpeg',
+  'assets/accesorios/WhatsApp Image 2026-09-14 at 1.27.17 PM (3) - copia.jpeg',
+  'assets/accesorios/WhatsApp Image 2026-09-14 at 1.27.17 PM (3).jpeg',
+  'assets/accesorios/WhatsApp Image 2026-09-14 at 1.27.17 PM - copia.jpeg',
+  'assets/accesorios/WhatsApp Image 2026-09-14 at 1.27.17 PM.jpeg',
+  'assets/accesorios/WhatsApp Image 2026-09-14 at 1.27.18 PM (1) - copia.jpeg',
+  'assets/accesorios/WhatsApp Image 2026-09-14 at 1.27.18 PM (1).jpeg',
+  'assets/accesorios/WhatsApp Image 2026-09-14 at 1.27.18 PM (2).jpeg',
+  'assets/accesorios/WhatsApp Image 2026-09-14 at 1.27.18 PM (3) - copia.jpeg',
+  'assets/accesorios/WhatsApp Image 2026-09-14 at 1.27.18 PM (3).jpeg',
+  'assets/accesorios/WhatsApp Image 2026-09-14 at 1.27.18 PM (4) - copia.jpeg',
+  'assets/accesorios/WhatsApp Image 2026-09-14 at 1.27.18 PM (4).jpeg',
+  'assets/accesorios/WhatsApp Image 2026-09-14 at 1.27.18 PM - copia.jpeg',
+  'assets/accesorios/WhatsApp Image 2026-09-14 at 1.27.18 PM.jpeg',
+  'assets/accesorios/WhatsApp Image 2026-09-14 at 1.27.19 PM.jpeg'
+];
+
+const kitImages = [
+  'assets/accesorios/kits/WhatsApp Image 2026-09-14 at 1.27.16 PM (3) - copia.jpeg',
+  'assets/accesorios/kits/WhatsApp Image 2026-09-14 at 1.27.16 PM (3).jpeg',
+  'assets/accesorios/kits/WhatsApp Image 2026-09-14 at 1.27.16 PM (4) - copia.jpeg',
+  'assets/accesorios/kits/WhatsApp Image 2026-09-14 at 1.27.16 PM (4).jpeg'
+];
+
 const grid = document.querySelector('#product-grid');
 const count = document.querySelector('#product-count');
 const toast = document.querySelector('#toast');
+const lightbox = document.querySelector('#lightbox');
+const lightboxImage = document.querySelector('.lightbox-image');
+const lightboxClose = document.querySelector('.lightbox-close');
 let toastTimer;
 
+function openLightbox(src, alt) {
+  if (!lightbox || !lightboxImage) return;
+  lightboxImage.src = src;
+  lightboxImage.alt = alt;
+  lightbox.classList.add('is-visible');
+  lightbox.setAttribute('aria-hidden', 'false');
+}
+
+function closeLightbox() {
+  if (!lightbox || !lightboxImage) return;
+  lightbox.classList.remove('is-visible');
+  lightbox.setAttribute('aria-hidden', 'true');
+  lightboxImage.src = '';
+}
+
 function renderProducts(filter = 'todos') {
+  if (filter === 'accesorios') {
+    grid.innerHTML = accessoryImages.map((src, index) => `
+      <article class="gallery-card gallery-card-compact lightbox-trigger" data-src="${src}" data-alt="Accesorio ${index + 1}">
+        <img src="${src}" alt="Accesorio ${index + 1}" loading="lazy" />
+      </article>
+    `).join('');
+    count.textContent = String(accessoryImages.length).padStart(2, '0');
+    return;
+  }
+
+  if (filter === 'kits') {
+    grid.innerHTML = kitImages.map((src, index) => `
+      <article class="gallery-card gallery-card-large lightbox-trigger" data-src="${src}" data-alt="Kit ${index + 1}">
+        <img src="${src}" alt="Kit ${index + 1}" loading="lazy" />
+      </article>
+    `).join('');
+    count.textContent = String(kitImages.length).padStart(2, '0');
+    return;
+  }
+
   const visible = filter === 'todos' ? products : products.filter((product) => product[1] === filter);
   grid.innerHTML = visible.map(([name, type, number]) => `
     <article class="product-card">
-      <div class="product-image">
+      <div class="product-image lightbox-trigger" data-src="${braceletImages[number] || `assets/product-${number}.svg`}" data-alt="${name}">
         <img src="${braceletImages[number] || `assets/product-${number}.svg`}" alt="${name}" loading="lazy" />
         <span class="product-number">${number}</span>
         <button class="product-favorite" type="button" aria-label="Guardar ${name}" aria-pressed="false">♡</button>
@@ -46,15 +123,38 @@ document.querySelectorAll('.filter-button').forEach((button) => {
 
 grid.addEventListener('click', (event) => {
   const favorite = event.target.closest('.product-favorite');
-  if (!favorite) return;
-  const saved = favorite.getAttribute('aria-pressed') === 'true';
-  favorite.setAttribute('aria-pressed', String(!saved));
-  favorite.classList.toggle('is-saved', !saved);
-  favorite.textContent = saved ? '♡' : '♥';
-  toast.textContent = saved ? 'Pieza retirada de tu seleccion' : 'Pieza guardada en tu seleccion';
-  toast.classList.add('is-visible');
-  clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => toast.classList.remove('is-visible'), 2200);
+  if (favorite) {
+    const saved = favorite.getAttribute('aria-pressed') === 'true';
+    favorite.setAttribute('aria-pressed', String(!saved));
+    favorite.classList.toggle('is-saved', !saved);
+    favorite.textContent = saved ? '♡' : '♥';
+    toast.textContent = saved ? 'Pieza retirada de tu seleccion' : 'Pieza guardada en tu seleccion';
+    toast.classList.add('is-visible');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.remove('is-visible'), 2200);
+    return;
+  }
+
+  const trigger = event.target.closest('.lightbox-trigger');
+  if (trigger) {
+    const src = trigger.dataset.src;
+    const alt = trigger.dataset.alt || 'Vista ampliada de la pieza';
+    if (src) {
+      openLightbox(src, alt);
+    }
+  }
+});
+
+lightboxClose.addEventListener('click', closeLightbox);
+lightbox.addEventListener('click', (event) => {
+  if (event.target === lightbox) {
+    closeLightbox();
+  }
+});
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' && lightbox && lightbox.classList.contains('is-visible')) {
+    closeLightbox();
+  }
 });
 
 renderProducts();
