@@ -1,8 +1,8 @@
 const products = [
-  ['Anillo Eclipse', 'anillos', '$1,890', '01'], ['Anillo Halo', 'anillos', '$2,150', '02'], ['Anillo Nudo', 'anillos', '$1,640', '03'], ['Anillo Signo', 'anillos', '$2,480', '04'], ['Anillo Umbral', 'anillos', '$1,990', '05'], ['Anillo Linea', 'anillos', '$1,550', '06'], ['Anillo Atlas', 'anillos', '$2,300', '07'], ['Anillo Pulsar', 'anillos', '$1,780', '08'],
-  ['Collar Solsticio', 'collares', '$3,200', '09'], ['Collar Trazo', 'collares', '$2,750', '10'], ['Collar Orbita', 'collares', '$3,480', '11'], ['Collar Norte', 'collares', '$2,960', '12'], ['Collar Ambar', 'collares', '$3,850', '13'], ['Collar Punto', 'collares', '$2,400', '14'], ['Collar Constelacion', 'collares', '$4,100', '15'],
-  ['Aretes Alba', 'aretes', '$1,450', '16'], ['Aretes Doble', 'aretes', '$1,280', '17'], ['Aretes Gota', 'aretes', '$1,690', '18'], ['Aretes Arco', 'aretes', '$1,520', '19'], ['Aretes Fulgor', 'aretes', '$1,890', '20'], ['Aretes Mini Orbita', 'aretes', '$1,150', '21'], ['Aretes Vela', 'aretes', '$1,620', '22'], ['Aretes Senda', 'aretes', '$1,380', '23'],
-  ['Pulsera Pulso', 'pulseras', '$2,100', '24'], ['Pulsera Nodo', 'pulseras', '$2,360', '25'], ['Pulsera Cadencia', 'pulseras', '$2,480', '26'], ['Pulsera Abierta', 'pulseras', '$2,050', '27'], ['Pulsera Eje', 'pulseras', '$2,700', '28'], ['Pulsera Rastro', 'pulseras', '$1,980', '29']
+  ['Anillo Eclipse', 'anillos', '01'], ['Anillo Halo', 'anillos', '02'], ['Anillo Nudo', 'anillos', '03'], ['Anillo Signo', 'anillos', '04'], ['Anillo Umbral', 'anillos', '05'], ['Anillo Linea', 'anillos', '06'], ['Anillo Atlas', 'anillos', '07'], ['Anillo Pulsar', 'anillos', '08'],
+  ['Collar Solsticio', 'collares', '09'], ['Collar Trazo', 'collares', '10'], ['Collar Orbita', 'collares', '11'], ['Collar Norte', 'collares', '12'], ['Collar Ambar', 'collares', '13'], ['Collar Punto', 'collares', '14'], ['Collar Constelacion', 'collares', '15'],
+  ['Aretes Alba', 'aretes', '16'], ['Aretes Doble', 'aretes', '17'], ['Aretes Gota', 'aretes', '18'], ['Aretes Arco', 'aretes', '19'], ['Aretes Fulgor', 'aretes', '20'], ['Aretes Mini Orbita', 'aretes', '21'], ['Aretes Vela', 'aretes', '22'], ['Aretes Senda', 'aretes', '23'],
+  ['Pulsera Pulso', 'pulseras', '24'], ['Pulsera Nodo', 'pulseras', '25'], ['Pulsera Cadencia', 'pulseras', '26'], ['Pulsera Abierta', 'pulseras', '27'], ['Pulsera Eje', 'pulseras', '28'], ['Pulsera Rastro', 'pulseras', '29']
 ];
 
 const braceletImages = {
@@ -21,7 +21,7 @@ let toastTimer;
 
 function renderProducts(filter = 'todos') {
   const visible = filter === 'todos' ? products : products.filter((product) => product[1] === filter);
-  grid.innerHTML = visible.map(([name, type, price, number]) => `
+  grid.innerHTML = visible.map(([name, type, number]) => `
     <article class="product-card">
       <div class="product-image">
         <img src="${braceletImages[number] || `assets/product-${number}.svg`}" alt="${name}" loading="lazy" />
@@ -30,7 +30,6 @@ function renderProducts(filter = 'todos') {
       </div>
       <div class="product-info">
         <div><h3 class="product-name">${name}</h3><span class="product-type">${type}</span></div>
-        <p class="product-price">${price}</p>
       </div>
     </article>
   `).join('');

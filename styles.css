@@ -62,10 +62,9 @@ h2 { font-size: clamp(65px, 8vw, 112px); }
 .product-number { color: var(--black); font-size: 9px; left: 12px; letter-spacing: .1em; position: absolute; top: 12px; }
 .product-favorite { background: transparent; border: 0; color: var(--black); cursor: pointer; font-size: 20px; line-height: 1; padding: 4px; position: absolute; right: 10px; top: 8px; }
 .product-favorite.is-saved { color: #a37527; }
-.product-info { align-items: start; display: flex; justify-content: space-between; padding-top: 14px; }
+.product-info { align-items: start; display: flex; justify-content: flex-start; padding-top: 14px; }
 .product-name { font-family: var(--serif); font-size: 24px; line-height: 1; margin: 0 0 6px; }
 .product-type { color: #77746c; font-size: 9px; letter-spacing: .12em; text-transform: uppercase; }
-.product-price { font-size: 11px; letter-spacing: .08em; margin: 2px 0 0; }
 .collection-footer { align-items: center; color: #77746c; display: flex; font-size: 10px; gap: 15px; justify-content: space-between; letter-spacing: .12em; margin-top: 64px; text-transform: uppercase; }
 .gold-line { background: var(--gold); height: 1px; width: 40%; }
 .manifesto { background: var(--black); color: var(--white); display: grid; grid-template-columns: 1fr 1.5fr .5fr; min-height: 610px; padding: 100px 10vw; }
